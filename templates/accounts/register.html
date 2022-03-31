@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Register</title>
+    <link rel="stylesheet" type="text/css" href="../../static/style.css">
+    <style>
+        body, html {
+            height: 100%;
+            margin: 0;
+        }
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="loginbox">
+        <img src={% static '/media/avatar.png' %} class="avatar">
+        <h1>Register</h1>
+        <form action="{% url 'register' %}" method="post">
+            {% csrf_token %}
+            {% include 'accounts/_messages.html' %}
+            <div class="form-group">
+                <label for="username">Username:</label>
+                <input type="text" class="form-control" id="username" placeholder="Enter username" name="username">
+            </div>
+            <div class="form-group">
+                <label for="email">Email:</label>
+                <input type="text" class="form-control" id="email" placeholder="Enter email" name="email">
+            </div>
+            <div class="form-group">
+                <label for="pwd1">Password:</label>
+                <input type="password" class="form-control" id="pwd1" placeholder="Enter password" name="password1">
+            </div>
+            <div class="form-group">
+                <label for="pwd2">Confirm Password:</label>
+                <input type="password" class="form-control" id="pwd2" placeholder="Reenter password"
+                       name="password2">
+            </div>
+            <a href="{% url 'login' %}"> Already have an account?</a>
+            <br>
+            <input type="submit" value="Register"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

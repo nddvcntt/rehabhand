@@ -1,0 +1,144 @@
+{% extends 'base.html' %}
+{% block title %}
+    home
+{% endblock %}
+{% block bd1 %}
+    {% load static %}
+    <div class="row">
+        <div class="col-sm-2 ">
+            <div id="list-example" class="list-group">
+                <a class="list-group-item " href="#background">Background</a>
+                <a class="list-group-item " href="#datacolection">Data Collection</a>
+                <a class="list-group-item " href="#details">Dataset Details</a>
+                <a class="list-group-item " href="#applications">Applications of dataset</a>
+            </div>
+
+        </div>
+        <div class="col-sm-8 mt-2 ps-3" style="text-indent: 30px">
+            <div style="text-align: center">
+                <h1 class="text-uppercase mt-5">    {% block nametable %}
+                    dataset rehabhand
+                {% endblock %}
+                </h1>
+            </div>
+            <p id="background"><strong> 1. Background </strong></p>
+            <div style="text-align:justify">
+
+                <p style="text-indent:30px">
+                    Rehabilitation is measures to restore the body’s functions reduced or lost due to injury, accident,
+                    stroke, cerebral palsy.
+                    Rehabilitation practices of patients needs the guidance and supervision of medical staff.
+                    Currently, tools for supporting doctors to monitore rehabilitation practices of patients are very
+                    limited in clinical settings, mainly they use the naked eye to observe.
+                    The automatic analysis and recognition of activities from data collected by the sensors worn by
+                    patients during exercise can assist doctors to quantify the patient’s recovery progress and have
+                    appropriate treatment regimen.
+                    We introduce a dataset collected from wearable sensors (first-person camera, accelerometer,
+                    gyroscope) that were worn by 10 rehabilitation patients through their hand exercises.
+                    Our dataset collected over 4 hours includes video, accelerometer and gyroscope data in real hospital
+                    environments from participants with different injuries, leading to recovery status very diverse
+                    functions.
+                    This is a dataset that has challenges due to occlusion and differences in hand position and shape
+                    because it is a dataset collected on patients who cannot use their hands normally like healthy
+                    people.
+                    In addition, two annotation tasks were done along with the recorded video. One task is to annotate
+                    the hand and object at the pixel level. The second task is to annotate the hand tracking.
+                </p>
+            </div>
+
+            <p id="datacolection"><strong> 2. Data Collection </strong></p>
+
+            <div style="text-align:justify">
+
+                <p>
+                    The dataset was recorded from 10 patients being treated at the Department of Rehabilitation, Hanoi
+                    Medical University Hospital.
+                    All patients are right-handed or left-handed, but they always have a weak hand to recover.
+                    This is good for comparing the patient’s hand ability. For data collection, we used a GoPro Hero4
+                    camera, San Mateo, California, USA, mounted on the chest and head, and a Gear S3 Frontier, Samsung
+                    watch worn on the patient’s arms.
+                    The videos were shot in MPEG-4 format with 1080p resolution and 30fps, a wide-angle fisheye lens
+                    that allowed us to record the entire workspace of two hands and held objects in front of the body.
+                    The patient participated in 4 of the most basic climb rehabilitation exercises were performed by the
+                    participant. Each exercise is repeated with a different frequency.
+                <div style="text-align: center">
+                    <img src={% static '/media/do_ex.jpg' %} width="300" height="200"> <br>
+                </div>
+                <p>Exercise 1 - practicing with the ball: pick up the round plastic balls with your hands and put them
+                    in the right holes.</p>
+
+                <p>Exercise 2 - practicing with water bottles: hold a water bottle pour water into a cup placed on the
+                    table. </p>
+                <p>Exercise 3 - practicing with wooden blocks: pick up wooden cubes with your hands try to put them in
+                    the right holes </p>
+                <p>Exercise 4 - practicing with cylindrical blocks: pick up the cylindrical blocks with your hands put
+                    them in the right holes. </p>
+                <div style="text-align: center">
+                    <img src={% static '/media/exs.png' %} width="900" height="600"> <br>
+                </div>
+
+                </p>
+            </div>
+            <p id="details"><strong> 3. Dataset Details</strong></p>
+            <p style="text-align: justify">
+                In HanRehab dataset, we provide all the data that has been collected, including the original video in
+                MPEG-4 format and the accelerometer and gyroscope data as text files.
+                The information splits the original video into exercise segment videos and sequence videos and syncs
+                with the accelerometer, gyroscope data organized and stored in a relational database.
+                For exercise segment video data, each record contains information including patientID, exerciseID,
+                FrameID start and FrameID stop of an exercise video segment and start and stop time- codes of the
+                accelerometer and gyroscope data, respectively.
+                This storage method also applies to sequence video but uses sequence frameID instead of exercise segment
+                frameID. We have ten patients participating in 4 exercises. Ten raw video files in MPEG- 4 formats with
+                a total length of 4h and a total capacity of 53 Gb were collected.
+                The raw videos are broken down into videos corresponding to each exercise.
+                In total, we have 56 videos of exercises, including 18 videos of practicing with the ball exercises, 16
+                videos of practicing with water bottles exercises, 14 videos of practicing with wooden blocks exercises,
+                and 10 videos of practicing with cylindrical blocks exercises.
+                Exercise videos are segmented into segment videos corresponding to one exercise at a time. There are 431
+                segment videos in our dataset. In addition to the original data, we also provide labeling data for both
+                segmentation and hand tracking tasks.
+                For the hand segmentation task, we selected 4500 image frames to assign polygon labels to hands and
+                objects. The training and testing data is split in a ratio of 4:1, where 921 labeled images of the test
+                set are taken from 2 patients not included in the train set.
+                For the hand tracking task, we have 32 videos with 10984 frames were label with hand bounding box.
+            </p>
+            <div style="text-align: center">
+                <img src={% static '/media/a.jpg' %} width="700" height="500"> <br>
+                <img src={% static '/media/b.jpg' %} width="700" height="500"> <br>
+                <img src={% static '/media/c.jpg' %} width="700" height="500"> <br>
+            </div>
+
+            <p id="applications"><strong> 4. Applications of dataset</strong></p>
+            <p style="text-align: justify">
+                The HandRehab dataset is used to detect and evaluate patient activities during rehabilitation exercises.
+                We implemented several model for two task: hand segmentation and hand tracking with HandRehab dataset.
+                We proposed a hand tracking by detection framework for hand detection and tracking from egocentric
+                vision and used the state of the art segmentation methods for hand and interacted objects segmentation.
+                We use "HandRehab" dataset to train and test these models. We also present metrics to evaluate the
+                segmentation model and the benchmarks for comparing between works that use our dataset “HandRehab”.
+            </p>
+            <div style="text-align: center">
+                <img src={% static '/media/structure.png' %} width="950" height="600">
+                <p>The structure of the HandRehab dataset</p>
+            </div>
+
+        </div>
+        <div class="col-sm-2 mt-2" style="">
+            <div class="text-center" style="color: #ffc107">
+                <h3> Note</h3>
+            </div>
+            <p>
+                Due to funding and staffing issues, we are no longer able to accept comment and suggestions.
+                We get numerous questions regarding topics that are addressed on our FAQ page.
+                If you have a problem or question regarding something you downloaded from the "Related projects" page,
+                you must contact the developer directly.
+                Please note that any changes made to the database are not reflected until a new version of WordNet is
+                publicly released.
+                Due to limited staffing, there are currently no plans for future ReHabHand releases.
+            </p>
+
+
+        </div>
+    </div>
+{% endblock %}

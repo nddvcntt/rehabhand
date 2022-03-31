@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% block title %}
+    patient list
+{% endblock %}
+{% block bd1 %}
+    {% if user.username %}
+        <div class="row">
+            <div class="col-sm-1 mt-1">
+
+            </div>
+            <div class="col-sm-10 mt-2">
+                <div style="text-align: center; ">
+                    <h2 class="text-uppercase mt-4">    {% block nametable %}
+                        Add result of detection
+                    {% endblock %}
+                    </h2>
+                <form class="form-contact" action="." method="post" enctype="multipart/form-data" style="margin-left: 50px; margin-top: 60px">
+                    {% csrf_token %}
+                    <label for="DataAug" style="width: 150px"> DataAug:</label>
+                    <input type="text" name="DataAug"> <br>
+                    <label for="apLeft" style="width: 150px"> apLeft:</label>
+                    <input type="text" name="apLeft"> <br>
+                    <label for="apRight" style="width: 150px"> apRight:</label>
+                    <input type="text" name="apRight"> <br>
+                    <label for="mapIou50" style="width: 150px"> mapIou50:</label>
+                    <input type="text" name="mapIou50"> <br>
+                     <label for="mapIou75" style="width: 150px"> mapIou75:</label>
+                    <input type="text" name="mapIou75"> <br>
+                     <label for="mapIou" style="width: 150px"> mapIou:</label>
+                    <input type="text" name="mapIou"> <br>
+                    <label for="paperlink" style="width: 150px"> link of paper:</label>
+                    <input type="text" name="paperlink">
+                    <br>
+                    <br>
+{#                    {{form.as_p}}#}
+                    <input type="submit" value="Submit"/>
+                    <br>
+{#                    <button class="btn-primary" type="submit" style="width: 100px; margin-top: 20px"> Add </button>#}
+                </form>
+
+                </div>
+
+                <br/>
+                {% if page_obj.has_next %}
+                    <a href="/"> </a>
+                {% endif %}
+
+            </div>
+            <div class="col-sm-1 mt-1">
+
+            </div>
+        </div>
+    {% else %}
+        <h5 class="card-title">Hello Guest</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Require Login to View</h6>
+        <p class="card-text">You need login to search. If you don't have not an account, please creat a new
+            account?</p>
+        <a href="{% url 'login' %}" class="card-link">Login</a>
+        <a href="{% url 'register' %}" class="card-link">Register</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,270 @@
+{% extends 'base.html' %}
+{% block title %}
+    Hand Detection and Segmentation Benchmark
+{% endblock %}
+{% block bd1 %}
+    <div class="col-sm-pull-12 mt-2">
+
+        <div style="text-align: center">
+            <h2 class="text-lg-center mt-auto">
+                {% block nametable %}
+                    Hand Detection and Segmentation Benchmark
+                {% endblock %}
+            </h2>
+        </div>
+        <div>
+            <table class="table table-bordered table-responsive">
+                <thead>
+                <tr>
+                    <th scope="col">#</th>
+                    <th scope="col">Folder Name</th>
+                    <th scope="col">Downloads</th>
+                    <th scope="col">Number of raw RGB images</th>
+                    <th scope="col">Number of mask images</th>
+                    <th scope="col">Description</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <th scope="row">1</th>
+                    <td>Train_Set.zip</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/file/d/1hde-GgkTYiHvEHVEptoU8uvCbnQWjjzs/view?usp=sharing">
+                        Here</a></td>
+                    <td>4599</td>
+                    <td>0</td>
+                    <td>Full Hand (hand and forearm) Object Segmentation Training dataset, including 4599 RGB image
+                        file 'y_xxxx.png', 1 file 'final_export_json.json' polygon label of objects. The label id value
+                        “7”
+                        and “8” are assigned to the left and right hand respectively.
+                    </td>
+
+                </tr>
+                <tr>
+                    <th scope="row">2</th>
+                    <td>Test_Set.zip</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/file/d/1DAqVTrsh3roZ9Ju88AXOCS5u0S49b-vv/view?usp=sharing">
+                        Here</a></td>
+                    <td>977</td>
+                    <td>0</td>
+                    <td>Full Hand (Full Hand (hand and forearm) ) Object Segmentation Test dataset, including 977 RGB
+                        image file 'y_xxxx.png',
+                        1 file 'final_export_json.json' polygon label of objects. The label id value “7” and “8” are
+                        assigned to the left and
+                        right hand respectively
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">3</th>
+                    <td>Test_Set_groundtruthofHand.json</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/file/d/1irEjiyW0E1IUkJCP-j5vk1xrZnWFPy0J/view?usp=sharing">
+                        Here</a></td>
+                    <td></td>
+                    <td></td>
+                    <td>Hand segmentation groundtruth of images in Test set 1.</td>
+                </tr>
+                <tr>
+                    <th scope="row">4</th>
+                    <td>mask_full_left_hand1</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/drive/folders/1hp1uRN8uC3rtZ19CKLLE1nL38zg7ylOM?usp=sharing">
+                        Here</a></td>
+                    <td>0</td>
+                    <td>1034</td>
+                    <td>Full left-hand (hand and forearm) segmentation binary images (pixel value=1: left-hand object,
+                        pixel value=0: not left-hand object) , the original RGB image is in "Training set 1", file name
+                        of original RGB image and file name of mask are the same There is one left-full hand in the
+                        image
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">5</th>
+                    <td>mask_full_right_hand1</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/drive/folders/1hp1uRN8uC3rtZ19CKLLE1nL38zg7ylOM?usp=sharing">
+                        Here</a></td>
+                    <td>0</td>
+                    <td>526</td>
+                    <td>Full right-hand (hand and forearm) segmentation binary images (pixel value=1: right-hand object,
+                        pixel value=0: not right-hand object), the original RGB image is in "Training set 1", file name
+                        of original RGB image and file name of mask are the same. There is one full right-hand in the
+                        image
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">6</th>
+                    <td>mask_full_left_hand2</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/drive/folders/1hp1uRN8uC3rtZ19CKLLE1nL38zg7ylOM?usp=sharing">
+                        Here</a></td>
+                    <td>0</td>
+                    <td>4599</td>
+                    <td>Full left-hand (hand and forearm) segmentation binary images (pixel value=1: left-hand object,
+                        pixel value=0: not left-hand object), the original RGB image is in "Training set 1", file name
+                        of original RGB image and file name of mask are the same. The mask contains only full left hand
+                        object or none object
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">7</th>
+                    <td>mask_full_right_hand2</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/drive/folders/1hp1uRN8uC3rtZ19CKLLE1nL38zg7ylOM?usp=sharing">
+                        Here</a></td>
+                    <td>0</td>
+                    <td>4599</td>
+                    <td>Full right-hand (hand and forearm) segmentation binary images (pixel value=1: right-hand object,
+                        pixel value=0: not right-hand object), the original RGB image is in "Training set 1", file name
+                        of
+                        original RGB image and file name of mask are the same. The mask contains only full right hand
+                        object or none object
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">8</th>
+                    <td>mask_left_hand</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/drive/folders/1cFvsakcxYlIZLKoVNV9cAWdKvSJFos0a?usp=sharing">
+                        Here</a></td>
+                    <td>0</td>
+                    <td>2870</td>
+                    <td>Left-hand (palm and finger) segmentation binary images (pixel value=1: left-hand object, pixel
+                        value=0: not left-hand object), the original RGB image is in "Training set 1", file name of
+                        original RGB image and file name of mask are the same. There is one left-hand in the image
+                    </td>
+                </tr>
+                <tr>
+                    <th scope="row">9</th>
+                    <td>right_left_hand</td>
+                    <td><a target="_blank" class="btn-outline-primary"
+                           href="https://drive.google.com/drive/folders/1W6q0yq_49qh1izFv0jwy-o2hKdwh5aTi?usp=sharing">
+                        Here</a></td>
+                    <td>0</td>
+                    <td>3321</td>
+                    <td>Left-hand (palm and finger) segmentation binary images (pixel value=1: left-hand object, pixel
+                        value=0: not left-hand object), the original RGB image is in "Training set 1", file name of
+                        original RGB image and file name of mask are the same. There is one left-hand in the image
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <div>
+                <P STYLE="margin-bottom: 0.11in"><strong>1. Experimental Setting</strong></P>
+                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in">-The “Training Set 1” dataset is used for training
+                    model</P>
+                <P STYLE="margin-left: 0.5in; margin-bottom: 0.11in">- The “Test Set 1” dataset is used for testing
+                    model</P>
+                <P STYLE="margin-bottom: 0.11in"><strong>2. Evaluation metrics</strong></P>
+                <P ALIGN=JUSTIFY STYLE="text-indent: 0.5in; margin-bottom: 0.11in">AP
+                    (AveragePrecision) is used as a measure to evaluate the model. AP is
+                    computed by calculating the average interpolation of the precision
+                    values over the recall values in [0,1]. We use the interpolation
+                    method at 101 recall points. which includes: AP<SUP>IoU=0.5</SUP> is
+                    the AP value at the threshold of IoU is 0.5, AP<SUP>IoU=0.75</SUP> is
+                    the AP value at the threshold of IoU is 0.75, and AP is the average
+                    AP value for the threshold of IoU from 0.5 to 0.95 with each
+                    increment of 0.05.</P>
+                <P STYLE="margin-bottom: 0.11in"><strong>3. Benchmark</strong></P>
+                <P STYLE="margin-left: 0.5in;margin-bottom: 0.11in"><FONT SIZE=3><B>- Hand dectection</B></FONT></P>
+                <P STYLE="margin-left: 1.0in;margin-bottom: 0.11in"><FONT SIZE=2><B> + </B></FONT>Evaluation
+                    on<FONT SIZE=2><B> left hand: AP</B></FONT><SUP><FONT SIZE=2><B>lefthand</B></FONT></SUP><FONT
+                            SIZE=2><B>(%)
+                        =</B></FONT><FONT SIZE=2><B>92.3 </B></FONT>
+                </P>
+                <P STYLE="margin-left: 1.0in; margin-bottom: 0.11in"> + Evaluation on ringt hand:
+                    <FONT SIZE=2><B>AP</B></FONT><SUP><FONT SIZE=2><B>righthand</B></FONT></SUP><FONT SIZE=2><B>(%)=
+                    </B></FONT><FONT SIZE=2><B>91.1</B></FONT></P>
+                <P STYLE="margin-left: 1.0in;margin-bottom: 0.11in"><FONT SIZE=2><B> + </B></FONT>Evaluation on all
+                    class: <FONT SIZE=2><B>mAP</B></FONT><SUP><FONT SIZE=2><B>IoU=0.50</B></FONT></SUP><FONT SIZE=2><B>(%)=</B></FONT><FONT
+                            SIZE=2><B>97.7,
+                    </B></FONT><FONT SIZE=2><B>mAP</B></FONT><SUP><FONT SIZE=2><B>IoU=0.75</B></FONT></SUP><FONT SIZE=2><B>(%)=</B></FONT><FONT
+                            SIZE=2><B>96.6,
+                    </B></FONT><FONT SIZE=2><B>mAP (%)=</B></FONT><FONT SIZE=2><B>91.7</B></FONT></P>
+                <P STYLE="margin-left: 0.5in;margin-bottom: 0.11in"><FONT SIZE=3><B>- Hand segmentation </B></FONT></P>
+                <P STYLE="margin-left: 1.0in;margin-bottom: 0.11in"><FONT SIZE=2><B> + </B></FONT>Evaluation
+                    on<FONT SIZE=2><B> left hand: AP</B></FONT><SUP><FONT SIZE=2><B>lefthand</B></FONT></SUP><FONT
+                            SIZE=2><B>(%)
+                        =</B></FONT><FONT SIZE=2><B>88.8</B></FONT></P>
+                <P STYLE="margin-left: 1.0in; margin-bottom: 0.11in"> + Evaluation on ringt hand:
+                    <FONT SIZE=2><B>AP</B></FONT><SUP><FONT SIZE=2><B>righthand</B></FONT></SUP><FONT SIZE=2><B>(%)=
+                    </B></FONT><FONT SIZE=2><B>87.0</B></FONT></P>
+                <P STYLE="margin-left: 1.0in; margin-bottom: 0.11in"><FONT SIZE=2><B> + </B></FONT>Evaluation
+                    on all class: <FONT SIZE=2><B>mAP</B></FONT><SUP><FONT SIZE=2><B>IoU=0.50</B></FONT></SUP><FONT
+                            SIZE=2><B>(%)=</B></FONT><FONT SIZE=2><B>97.7,
+                    </B></FONT><FONT SIZE=2><B>mAP</B></FONT><SUP><FONT SIZE=2><B>IoU=0.75</B></FONT></SUP><FONT SIZE=2><B>(%)=</B></FONT><FONT
+                            SIZE=2><B>97.2,
+                    </B></FONT><FONT SIZE=2><B>mAP (%)=</B></FONT><FONT SIZE=2><B>87.9</B></FONT></P>
+                <P STYLE="margin-bottom: 0.11in"><strong>4. Compare the results</strong></P>
+                <div class="mx-auto" style="text-align: center; width: 1200px">
+                    <p style="font-style: italic">
+                        Compare the results of the hand detection</p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Data Aug</th>
+                            <th scope="col">AP <sup>lefthand</sup>(%)</th>
+                            <th scope="col">AP <sup>righthand</sup>(%)</th>
+                            <th scope="col">mAP <sup>IoU=0.50</sup>(%)</th>
+                            <th scope="col">mAP <sup>IoU=0.75</sup>(%)</th>
+                            <th scope="col">mAP <sup>IoU</sup>(%)</th>
+                            <th scope="col">view a paper</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in dataDec %}
+                            <tr>
+                                <td>{{ item.DataAug }}</td>
+                                <td>{{ item.apLeft }}</td>
+                                <td>{{ item.apRight }}</td>
+                                <td>{{ item.mapIou50 }}</td>
+                                <td>{{ item.mapIou75 }}</td>
+                                <td>{{ item.mapIou }}</td>
+                                <td><a href="#" target="_blank"> click here </a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a href="{% url 'detection' %}" class=" btn btn-primary" role="button"> Add your result</a>
+                    <br>
+                    <form>
+                        <br>
+                    </form>
+                </div>
+                <div class="mx-auto" style="text-align: center; width: 1200px">
+                    <p style="font-style: italic">
+                        Compare the results of the hand segmentation</p>
+                    <table class="table table-bordered">
+                        <thead>
+                        <tr>
+                            <th scope="col">Data Aug</th>
+                            <th scope="col">AP <sup>lefthand</sup>(%)</th>
+                            <th scope="col">AP <sup>righthand</sup>(%)</th>
+                            <th scope="col">mAP <sup>IoU=0.50</sup>(%)</th>
+                            <th scope="col">mAP <sup>IoU=0.75</sup>(%)</th>
+                            <th scope="col">mAP <sup>IoU</sup>(%)</th>
+                            <th scope="col">view a paper</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+                        {% for item in dataSeg %}
+                            <tr>
+                                <td>{{ item.DataAug }}</td>
+                                <td>{{ item.apLeft }}</td>
+                                <td>{{ item.apRight }}</td>
+                                <td>{{ item.mapIou50 }}</td>
+                                <td>{{ item.mapIou75 }}</td>
+                                <td>{{ item.mapIou }}</td>
+                                <td><a href="#" target="_blank"> click here </a></td>
+                            </tr>
+                        {% endfor %}
+                        </tbody>
+                    </table>
+                    <a href="{% url 'segmentation' %}" class=" btn btn-primary" role="button"> Add your result</a>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

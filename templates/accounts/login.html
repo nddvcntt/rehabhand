@@ -1,0 +1,32 @@
+<html>
+<head>
+    {% load static %}
+    <meta charset="UTF-8">
+    <title>Login</title>
+    <link rel="stylesheet" type="text/css" href="../../static/style.css">
+</head>
+<body>
+<div class="loginbox">
+    <img src={% static '/media/a1.png' %} class="avatar">
+    <h1>Login</h1>
+
+    <form action="{% url 'login' %}" method="POST">
+        {% csrf_token %}
+        <div class="form-group">
+            {% for key,value in form.error.item %}
+                {{ value }}
+            {% endfor %}
+            <p><label> User</label>: {{ form.username }}</p>
+            <p><label> Password</label>: {{ form.password }}</p>
+            <input type="submit" value="Submit">
+            <a href="#">Forgot your password?</a><br>
+            <a href="{% url 'register' %}">Don't have an account?</a>
+        </div>
+
+    </form>
+
+</div>
+
+</body>
+</head>
+</html>

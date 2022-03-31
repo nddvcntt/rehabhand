@@ -1,0 +1,62 @@
+{% extends 'base.html' %}
+{% block title %}
+    patient list
+{% endblock %}
+{% block bd1 %}
+    {% if user.username %}
+        <div class="row">
+            <div class="col-sm-1 mt-1">
+
+            </div>
+            <div class="col-sm-10 mt-2">
+                <div style="text-align: center">
+                    <h2 class="text-uppercase mt-4">    {% block nametable %}
+                        Exercise list
+                    {% endblock %}
+                    </h2>
+                <a class="btn btn-primary" href="{% url 'search2' %}" role="button">Search</a>
+                    <a class="btn btn-primary" href="https://drive.google.com/file/d/0B6hb_M2qyZxLZTM0ZjY0YTItN2Q5ZS00MTVjLTliNmUtYmRjMTRjNzJlMjFj/view" role="button">Download data frame</a>
+                </div>
+                <table class="table table-striped ">
+                    <thead>
+                    <tr>
+                        <th scope="col">Number</th>
+                        <th scope="col">Vietnamese name</th>
+                        <th scope="col">English name</th>
+                        <th scope="col">Frequency</th>
+
+                    </tr>
+                    </thead>
+                    <tbody>
+
+                    {% for x in Exercise %}
+                        <tr>
+                            <th scope="row"><a href="{% url "search2_id" x.id %}">  {{ x.id }}</a></th>
+                            <td>{{ x.name_vn }}</td>
+                            <td>{{ x.name_uk }}</td>
+                            <td>{{ x.frequency }}</td>
+                        </tr>
+                    {% endfor %}
+
+                    </tbody>
+                </table>
+
+                <br/>
+                {% if page_obj.has_next %}
+                    <a href="/"> </a>
+                {% endif %}
+
+            </div>
+            <div class="col-sm-1 mt-1">
+
+            </div>
+        </div>
+    {% else %}
+        <h5 class="card-title">Hello Guest</h5>
+        <h6 class="card-subtitle mb-2 text-muted">Require Login to View</h6>
+        <p class="card-text">You need login to search. If you don't have not an account, please creat a new
+            account?</p>
+        <a href="{% url 'login' %}" class="card-link">Login</a>
+        <a href="{% url 'register' %}" class="card-link">Register</a>
+    {% endif %}
+{% endblock %}

@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    {% load static %}
+    <meta charset="UTF-8">
+
+    <link rel="stylesheet" href="{% static '/css/bootstrap.min.css' %}" type="text/css">
+    {#    <link rel="stylesheet" href="{% static '/style.css' %}" type="text/css">#}
+    <title>{% block title %}
+        RehabHand
+    {% endblock %}</title>
+</head>
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">
+            <img src="{% static 'media/a1.png' %}" alt="" width="30" height="30" class="d-inline-block align-top">
+            International Research Institute MICA
+        </a>
+    </div>
+</nav>
+<nav class="navbar navbar-expand-lg navbar-dark bg-secondary fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand lh-1">RehabHand <br>
+            <span style="font-size: 9px; color: sandybrown">A wearable sensor database for Rehabition patients</span>
+        </a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item ">
+                    <a class="nav-link {% if nav == 'home' %} active {% endif %} " aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={% url 'dataGeneral' %}>Data</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href={% url 'segmendata' %}>Segment hand</a>
+                </li>
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button"
+                       data-bs-toggle="dropdown" aria-expanded="false">
+                        Tracking Hand
+                    </a>
+                    <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+                        <li><a class="dropdown-item" role="button" href="#">Tracking Dataset</a></li>
+                        <li><a class="dropdown-item" role="button" href="#">Benchmark</a></li>
+                        <ul>
+                            <li><a class="dropdown-item" href="#">Result</a></li>
+                            <li><a class="dropdown-item" href="#">Prediction</a></li>
+                        </ul>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/about/">About us</a>
+                </li>
+
+            </ul>
+            <form class="d-flex">
+                {% if user.username %}
+                    <p style="color: #bfd1ec;  ">Hello {{ user.username }}|&#160;<a href="{% url 'logout' %}"
+                                                                                    style="color: #c5e8ef"> Logout</a>
+                    </p>
+                {% else %}
+                    <a class="btn btn-primary" href="{% url 'login' %}" role="button">Login</a>
+                {% endif %}
+                &nbsp;
+                <a href="#"> <img src="{% static 'media/vietnam.png' %} " alt="" width="36" height="36"
+                                  class="d-inline-block align-content-center"></a>
+                &nbsp;
+                <a href="#"> <img src="{% static 'media/uk.png' %} " alt="" width="36" height="36"
+                                  class="d-inline-block align-content-center"></a>
+
+            </form>
+        </div>
+    </div>
+</nav>
+<br>
+<div class="container-fluid">
+
+    {% block bd1 %}
+    {% endblock %}
+</div>
+
+<script type="text/javascript" src=" {% static '/js/bootstrap.bundle.js' %}"></script>
+</body>
+</html>
