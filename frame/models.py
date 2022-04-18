@@ -180,6 +180,8 @@ class General(models.Model):
     timestop=models.CharField(max_length=255)
     path_camera=models.CharField(max_length=1000, default=None)
     path_accelerometor=models.CharField(max_length=1000, default=None)
+    patient = models.IntegerField(default=None,null=True )
+    exercise= models.IntegerField(default=None,null=True )
 
     def __str__(self):
         return " %s, %s, %s, %s, %s, %s, %s" % (self.data, self.dextroushand, self.weekhand,self.timestart, self.timestop, self.path_camera, self.path_accelerometor)

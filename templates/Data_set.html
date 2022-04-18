@@ -3,6 +3,7 @@
     Hand Detection and Segmentation Benchmark
 {% endblock %}
 {% block bd1 %}
+    {% load sorting_tags %}
     <div class="col-sm-pull-12 mt-2">
 
         <div style="text-align: center">
@@ -200,15 +201,16 @@
                 <div class="mx-auto" style="text-align: center; width: 1200px">
                     <p style="font-style: italic">
                         Compare the results of the hand detection</p>
+                 {% autosort dataDec %}
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">Data Aug</th>
-                            <th scope="col">AP <sup>lefthand</sup>(%)</th>
-                            <th scope="col">AP <sup>righthand</sup>(%)</th>
-                            <th scope="col">mAP <sup>IoU=0.50</sup>(%)</th>
-                            <th scope="col">mAP <sup>IoU=0.75</sup>(%)</th>
-                            <th scope="col">mAP <sup>IoU</sup>(%)</th>
+                            <th> {% anchor DataAug "Data Aug" %}</th>
+                            <th> {% anchor apLeft "AP" %} <sup>lefthand</sup>(%)</th>
+                            <th> {% anchor apRight "AP" %} <sup>righthand</sup>(%)</th>
+                            <th> {% anchor mapIou50 "mAP" %} <sup>IoU=0.50</sup>(%)</th>
+                            <th> {% anchor mapIou75 "mAP" %} <sup>IoU=0.75</sup>(%)</th>
+                            <th> {% anchor mapIou "mAP" %} <sup>IoU</sup>(%)</th>
                             <th scope="col">view a paper</th>
                         </tr>
                         </thead>
@@ -228,22 +230,22 @@
                     </table>
                     <a href="{% url 'detection' %}" class=" btn btn-primary" role="button"> Add your result</a>
                     <br>
-                    <form>
-                        <br>
-                    </form>
+                    <br>
+
                 </div>
                 <div class="mx-auto" style="text-align: center; width: 1200px">
                     <p style="font-style: italic">
                         Compare the results of the hand segmentation</p>
+                  {% autosort dataSeg %}
                     <table class="table table-bordered">
                         <thead>
                         <tr>
-                            <th scope="col">Data Aug</th>
-                            <th scope="col">AP <sup>lefthand</sup>(%)</th>
-                            <th scope="col">AP <sup>righthand</sup>(%)</th>
-                            <th scope="col">mAP <sup>IoU=0.50</sup>(%)</th>
-                            <th scope="col">mAP <sup>IoU=0.75</sup>(%)</th>
-                            <th scope="col">mAP <sup>IoU</sup>(%)</th>
+                            <th> {% anchor DataAug "Data Aug" %}</th>
+                            <th> {% anchor apLeft "AP" %} <sup>lefthand</sup>(%)</th>
+                            <th> {% anchor apRight "AP" %} <sup>righthand</sup>(%)</th>
+                            <th> {% anchor mapIou50 "mAP" %} <sup>IoU=0.50</sup>(%)</th>
+                            <th> {% anchor mapIou75 "mAP" %} <sup>IoU=0.75</sup>(%)</th>
+                            <th> {% anchor mapIou "mAP" %} <sup>IoU</sup>(%)</th>
                             <th scope="col">view a paper</th>
                         </tr>
                         </thead>

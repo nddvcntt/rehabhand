@@ -4,17 +4,39 @@
 {% endblock %}
 {% block bd1 %}
     {% if user.username %}
+        <style >
+        body {
+        margin: 0;
+        padding: 0;
+        background-color: #86b7fe;
+        background-size: cover;
+        background-position: center;
+        font-family: sans-serif;
+        background-repeat: no-repeat;
+        height: 95%;
+}
+        input{
+            border: none;
+            border-bottom: 1px solid #fff;
+            background: transparent;
+            outline: none;
+            height: 40px;
+            color: #fff;
+            font-size: 16px;
+            width: 300px;
+        }
+        </style>
         <div class="row">
             <div class="col-sm-1 mt-1">
 
             </div>
             <div class="col-sm-10 mt-2">
-                <div style="text-align: center; ">
+                <div class="loginbox"   style="text-align: center; ">
                     <h2 class="text-uppercase mt-4">    {% block nametable %}
                         Add result of detection
                     {% endblock %}
                     </h2>
-                <form class="form-contact" action="." method="post" enctype="multipart/form-data" style="margin-left: 50px; margin-top: 60px">
+                <form class="form-group" action="." method="post" enctype="multipart/form-data" style="margin-left: 50px; margin-top: 60px">
                     {% csrf_token %}
                     <label for="DataAug" style="width: 150px"> DataAug:</label>
                     <input type="text" name="DataAug"> <br>
@@ -33,7 +55,7 @@
                     <br>
                     <br>
 {#                    {{form.as_p}}#}
-                    <input type="submit" value="Submit"/>
+                   <button type="submit" class="btn btn-primary">Submit</button>
                     <br>
 {#                    <button class="btn-primary" type="submit" style="width: 100px; margin-top: 20px"> Add </button>#}
                 </form>

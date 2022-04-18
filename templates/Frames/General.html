@@ -17,17 +17,17 @@
                         <div class="row">
                             <div class="col-5" style="text-align:right">
                                 <select class="form-select" name="patient" id="patient" style="width: 300px">
-                                    <option value="">>--All patients--<</option>
+                                    <option value="0">>--All patients--<</option>
                                     {% for item in patientdata %}
-                                        <option value={{ item.id }}> {{ item.name }}</option>
+                                        <option value={{ item.id }} > {{ item.name }}</option>
                                     {% endfor %}
                                 </select>
                             </div>
                             <div class="col-5">
                                 <select class="form-select" name="exercise" id="exercise" style="width: 300px">
-                                    <option value="">>--All exercises--<</option>
+                                    <option value="0" >>--All exercises--<</option>
                                     {% for item in exercisedata %}
-                                        <option value={{ item.id }}> {{ item.name_uk }}</option>
+                                        <option value={{ item.id }} > {{ item.name_uk }}</option>
                                     {% endfor %}
                                 </select>
                             </div>

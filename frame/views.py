@@ -3,7 +3,7 @@ from django.http import HttpResponseRedirect
 from django.shortcuts import render, redirect
 from django.views import View
 from django.views.generic import ListView, DetailView
-
+from django.db.models import Q
 from .models import *
 
 
@@ -149,6 +149,7 @@ class DetectionView(View):
         detection = Detection.objects.create(DataAug=DataAug, apLeft=apLeft, apRight=apRight, mapIou50=mapIou50,
                                              mapIou75=mapIou75, mapIou=mapIou, paperlink=paperlink)
         detection.save()
+        messages.success(request, 'Result successfully created')
         return render(request, 'Frames/detection.html')
 
 class SegmentationView(View):
@@ -182,13 +183,20 @@ class GeneralView(View):
           'exercisedata': exercisedata, 'rawvideodata':rawvideodata})
 
     def post(self,request):
-        pat_id=request.POST['patient']
+        pat_id= request.POST['patient']
         ex_id = request.POST['exercise']
-        generaldata = General.objects.all()
+        if(pat_id=="0" and ex_id=='0'):
+            generaldata = General.objects.all()
+        elif (pat_id=="0" and ex_id!='0'):
+            generaldata = General.objects.filter(exercise=ex_id)
+        elif (pat_id !="0" and ex_id=='0'):
+            generaldata = General.objects.filter(patient=pat_id)
+        else:
+            generaldata = General.objects.filter(patient=pat_id, exercise=ex_id)
         patientdata = Patient.objects.all()
         exercisedata = Exercise.objects.all()
         return render(request, 'Frames/General.html',
-                      {'generaldata': generaldata, 'patientdata': patientdata, 'exercisedata': exercisedata})
+                      {'generaldata': generaldata, 'patientdata': patientdata, 'exercisedata': exercisedata,'pat_id':pat_id,'ex_id':ex_id})
 
 
 
