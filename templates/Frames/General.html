@@ -63,10 +63,10 @@
 
                                                 <td> {{ x.timestart }} </td>
                                                 <td> {{ x.timestop }} </td>
-                                                <td><a href="#"> {% if x.path_camera  %}
+                                                <td><a href="{{ x.path_camera }} }}"> {% if x.path_camera  %}
                                                    Download
                                                 {% endif %}</a></td>
-                                                <td><a href="#"> {% if x.path_accelerometor %}Download {% endif %}</a></td>
+                                                <td><a href="{{x.path_accelerometors}}"> {% if x.path_accelerometor %}Download {% endif %}</a></td>
                                             </tr>
                                         {% endfor %}
 
