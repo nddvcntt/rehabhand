@@ -19,16 +19,26 @@
                                 <select class="form-select" name="patient" id="patient" style="width: 300px">
                                     <option value="0">>--All patients--<</option>
                                     {% for item in patientdata %}
-                                        <option value={{ item.id }} > {{ item.name }}</option>
+                                          {% if item.id == pat_id %}
+                                             <option selected="selected" value= "{{ item.id}}" > {{ item.name }}</option>
+                                         {% else %}
+                                             <option value= "{{ item.id }}" > {{ item.name }}</option>
+                                        {% endif %}
                                     {% endfor %}
+
                                 </select>
                             </div>
                             <div class="col-5">
                                 <select class="form-select" name="exercise" id="exercise" style="width: 300px">
-                                    <option value="0" >>--All exercises--<</option>
+                                    <option value="0"  >>--All exercises--<</option>
                                     {% for item in exercisedata %}
-                                        <option value={{ item.id }} > {{ item.name_uk }}</option>
+                                        {% if item.id == ex_id %}
+                                        <option  selected value= "{{ ex_id }}" > {{ item.name_uk }}</option>
+                                         {% else %}
+                                             <option value= "{{ item.id }}" > {{ item.name_uk }}</option>
+                                        {% endif %}
                                     {% endfor %}
+#
                                 </select>
                             </div>
 
@@ -66,7 +76,7 @@
                                                 <td><a href="{{ x.path_camera }} }}"> {% if x.path_camera  %}
                                                    Download
                                                 {% endif %}</a></td>
-                                                <td><a href="{{x.path_accelerometors}}"> {% if x.path_accelerometor %}Download {% endif %}</a></td>
+                                                <td><a href="{{x.path_accelerometor}}"> {% if x.path_accelerometor %}Download {% endif %}</a></td>
                                             </tr>
                                         {% endfor %}
 

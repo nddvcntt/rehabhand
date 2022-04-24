@@ -195,6 +195,8 @@ class GeneralView(View):
             generaldata = General.objects.filter(patient=pat_id, exercise=ex_id)
         patientdata = Patient.objects.all()
         exercisedata = Exercise.objects.all()
+        ex_id=int(ex_id)
+        pat_id=int(pat_id)
         return render(request, 'Frames/General.html',
                       {'generaldata': generaldata, 'patientdata': patientdata, 'exercisedata': exercisedata,'pat_id':pat_id,'ex_id':ex_id})
 

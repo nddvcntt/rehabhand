@@ -163,5 +163,4 @@ EMAIL_HOST_PASSWORD = 'Dond1987'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # DATABASES['default'] = dj_database_url.config(conn_max_age=600, ssl_require=True)
-# DATABASES['default'] = dj_database_url.config (default ='postgres://xkmxfouwfmaxlr:cfce3f620ca7d4d7172b3e962434b3be31b1a9d4b4c876d8ca89db14b72d9aef@ec2-52-201-124-168.compute-1.amazonaws.com:5432/dd4atgpu6spvb6',conn_max_age = 600,ssl_require=True)
 django_heroku.settings(locals())
