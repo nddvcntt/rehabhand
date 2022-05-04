@@ -173,6 +173,7 @@ class Segmentation(models.Model):
 
 
 class General(models.Model):
+    hand_choice = (('left', 'left'), ('right', 'right'))
     data=models.CharField(max_length=255)
     dextroushand=models.CharField(max_length=255)
     weekhand = models.CharField(max_length=255)
@@ -180,6 +181,7 @@ class General(models.Model):
     timestop=models.CharField(max_length=255)
     path_camera=models.CharField(max_length=1000, default=None)
     path_accelerometor=models.CharField(max_length=1000, default=None)
+    ex_hand=models.CharField(choices=hand_choice, default='right',max_length=30)
     patient = models.IntegerField(default=None,null=True )
     exercise= models.IntegerField(default=None,null=True )
 

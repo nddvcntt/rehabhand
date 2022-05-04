@@ -57,6 +57,7 @@
                         <th scope="col-2" style="background: dodgerblue ">Data</th>
                         <th scope="col-2" style="background: dodgerblue ">Dextrous hand</th>
                         <th scope="col-2" style="background: dodgerblue ">Weak hand</th>
+                        <th scope="col-2" style="background: dodgerblue ">Execute hand</th>
                         <th scope="col-2" style="background: dodgerblue ">Time start</th>
                         <th scope="col-2" style="background: dodgerblue ">Time stop</th>
                         <th scope="col-2" style="background: dodgerblue ">Camera</th>
@@ -70,7 +71,7 @@
                                                 <td>{{ x.data }}</td>
                                                 <td>{{ x.dextroushand }}</td>
                                                 <td>{{ x.weekhand }}</td>
-
+                                                <td>{{ x.ex_hand }}</td>
                                                 <td> {{ x.timestart }} </td>
                                                 <td> {{ x.timestop }} </td>
                                                 <td><a href="{{ x.path_camera }} }}"> {% if x.path_camera  %}
@@ -82,43 +83,6 @@
 
                     </tbody>
                 </table>
-{#                <div class="container px-4">#}
-{#                    <div class="row">#}
-{#                        <div class="col">#}
-{#                            Data#}
-{#                            {% for item in rawvideodata %}#}
-{#                              <p style="font-style: italic">  {{ item.patient }}</p>#}
-{#                                {% for  i in  exercisedata %}#}
-{#                                    <li>#}
-{#                                    {{ i.exercise}}#}
-{#                                    </li>#}
-{#                                {% endfor %}#}
-{#                            {% endfor %}#}
-{##}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            Dextrous hand#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            Weak hand#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            Time start#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            Time stop#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            Camera#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            Accelerometer left#}
-{#                        </div>#}
-{#                        <div class="col">#}
-{#                            Accelerometer right#}
-{#                        </div>#}
-{#                    </div>#}
-{#                </div>#}
 
                 <br/>
                 {% if page_obj.has_next %}
