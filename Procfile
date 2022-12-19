@@ -1,1 +1,1 @@
-web: gunicorn data_hand.wsgi 
+web: gunicorn data_hand.wsgi --log-file -
